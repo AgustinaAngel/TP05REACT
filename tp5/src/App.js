@@ -7,6 +7,21 @@ function App() {
   const [contador, setContador] = useState(0);
   const [pais, setPais] = useState({});
   const [nombre, setNombre] = useState('');
+  const [timeLeft, setTimeLeft] = useState(15);
+
+    useEffect(() => {
+      if (!timeLeft) return;
+
+      const intervalId = setInterval(() => {
+        setTimeLeft(timeLeft - 1);
+      },1000);
+
+     
+      return () => clearInterval(intervalId);
+      
+    }, [timeLeft]);
+
+
 
 
   const listarPaises = () => {
@@ -18,6 +33,7 @@ function App() {
         setPaises(paises);
 
         var item = paises[Math.floor(Math.random() * paises.length)];
+        setTimeLeft(15);
         setPais(item);
       })
 
@@ -25,7 +41,7 @@ function App() {
 
   useEffect(() => {
     listarPaises()
-  }, [contador + 10]);
+  }, [contador]);
 
   function FormPais(evento) {
     evento.preventDefault();
@@ -41,33 +57,37 @@ function App() {
     }
     evento.target.pais.value = '';
     return;
-
   }
-
-
-
+  
+  if(timeLeft==0){
+    listarPaises();
+  }
 
   return (
     <>
-    <NavBar/>
-    <br/>
- <center>
-      <label className="pb-1">Ingresa tu nombre</label>
-    <br/>
-      <input onKeyUp={(e) => setNombre(e.target.value)} type="text" placeholder="Nombre" ></input>
-      <div className="pb-5" > </div>
-      <h1>Hola {nombre}, tus puntos son: {contador}!!!</h1>
+      <NavBar />
 
-   
-      {/*<p>{pais.name}</p>*/}
-      <img src={pais.flag} alt="" />
-      <br/>
-      <form onSubmit={(e) => FormPais(e)}>
-        <label>Ingrese nombre del país</label>
-        <br/>
-        <input type="text" name="pais" className="u-full-width" placeholder="Pais" autoComplete="off" />
-        <button type="submit" className="u-full-width button-primary">Enviar</button>
-      </form>
+    
+      <br />
+      <center>
+        <label className="pb-1">Ingresa tu nombre</label>
+        <br />
+        <input onKeyUp={(e) => setNombre(e.target.value)} type="text" className="medidainput" placeholder="Nombre" ></input>
+        <div className="pb-5" > </div>
+        <h1>Hola {nombre}, tus puntos: {contador}!!!</h1>
+
+
+        {/*<p>{pais.name}</p>*/}
+       
+        <h1>{timeLeft}</h1>
+        <img src={pais.flag} className="imagenPais" alt="" />
+        <br />
+        <form onSubmit={(e) => FormPais(e)}>
+          <label>Ingrese nombre del país</label>
+          <br />
+          <input type="text" name="pais" className="u-full-width medidainput" placeholder="Pais" autoComplete="off" />
+          <button type="submit" className="u-full-width button-primary botonEnviar">Enviar</button>
+        </form>
       </center>
     </>
 
