@@ -1,19 +1,34 @@
 p,h1,label,a, button{
   font-family: 'Lato', sans-serif;
   font-size: 30px;
+  color: #ffff;
+  font-weight: 900;
+
+}
+p,h1,label,a{
+  text-shadow: 1px 1px 2px #502706;
 }
 
+
+
+body{
+  background-image: url("./MAPA.jpg");
+  background-repeat: no-repeat;
+  background-size:auto;
+}
 /*nav{
   background-color:#c4c4c4 !important;
 }*/
-.borderNav {
-  border-bottom: 1.5px solid #34a2e2; 
+nav {
+  border-bottom: 1.5px solid #8a5223; 
+  background-color: #8a5223!important;
+
 }
 
 
 .imag{
   width:65px!important;
-  height:55px!important;
+  height:60px!important;
   float:left;
 }
 
@@ -33,16 +48,16 @@ p,h1,label,a, button{
   border-width: 1.5px!important;
   text-transform: none !important;
   border-radius:7px !important;
-  color:#02273d !important;
-  border-color:#005281  !important;
-  background-color:#34a2e2 !important;
+  color:#8a5223 !important;
+  border-color:#8a5223  !important;
+  background-color:#D9AD6E !important;
 }
 .botonEnviar:hover {
  
   box-shadow:
-       inset 0 -2em 1em #34a2e2,
+       inset 0 -2em 1em #D9AD6E,
              
-             0.3em 0.3em 1em #005281;
+             0.3em 0.4em 2em #502706;
 
   font-size: 16px;
 }

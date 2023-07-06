@@ -47,6 +47,7 @@ function App() {
     evento.preventDefault();
     console.log(evento);
     console.log(evento.target.pais.value);
+
     if (pais.name == evento.target.pais.value) {
       setContador(contador + 10);
 
@@ -67,7 +68,6 @@ function App() {
     <>
       <NavBar />
 
-    
       <br />
       <center>
         <label className="pb-1">Ingresa tu nombre</label>
@@ -78,7 +78,7 @@ function App() {
 
 
         {/*<p>{pais.name}</p>*/}
-       
+       <p>{pais.name}</p>
         <h1>{timeLeft}</h1>
         <img src={pais.flag} className="imagenPais" alt="" />
         <br />
@@ -89,6 +89,7 @@ function App() {
           <button type="submit" className="u-full-width button-primary botonEnviar">Enviar</button>
         </form>
       </center>
+
     </>
 
   );
