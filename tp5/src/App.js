@@ -78,7 +78,7 @@ function App() {
 
 
         {/*<p>{pais.name}</p>*/}
-       <p>{pais.name}</p>
+       
         <h1>{timeLeft}</h1>
         <img src={pais.flag} className="imagenPais" alt="" />
         <br />
