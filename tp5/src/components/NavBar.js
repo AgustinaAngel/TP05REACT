@@ -1,5 +1,4 @@
 import React from 'react';
-import LOGO from '../LOGO.webp';
 import tierra from '../tierra.png';
 import '../App.css';
 
@@ -18,3 +17,7 @@ function NavBar() {
 }
 
 export default NavBar;
+
+
+//rfc tab Componente
+//rfcp tab Componente con propTypes
