@@ -54,7 +54,7 @@ function App() {
     console.log(evento);
     console.log(evento.target.pais.value);
 
-    if (pais.name == evento.target.pais.value) {
+    if (pais.name === evento.target.pais.value) {
       setContador(contador + 10);
 
 
@@ -66,7 +66,7 @@ function App() {
     return;
   }
   
-  if(timeLeft==0){
+  if(timeLeft===0){
     listarPaises();
   }
 
