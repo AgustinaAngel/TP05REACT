@@ -54,7 +54,7 @@ function App() {
     console.log(evento);
     console.log(evento.target.pais.value);
 
-    if (pais.name === evento.target.pais.value) {
+    if ((pais.name).toLowerCase() === (evento.target.pais.value).toLowerCase()) {
       setContador(contador + 10);
 
 
