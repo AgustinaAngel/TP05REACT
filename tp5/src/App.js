@@ -8,6 +8,12 @@ function App() {
   const [pais, setPais] = useState({});
   const [nombre, setNombre] = useState('');
   const [timeLeft, setTimeLeft] = useState(15);
+  const [showForm, setShowForm] = useState(false);
+
+  const handleClick = () => {
+    setShowForm(true);
+    setTimeLeft(15);
+  };
 
     useEffect(() => {
       if (!timeLeft) return;
@@ -69,16 +75,23 @@ function App() {
       <NavBar />
 
       <br />
+      <br />
       <center>
-        <label className="pb-1">Ingresa tu nombre</label>
+       <h1 className= "under">¡Jugando con banderas!</h1>
+       <br />
+        {!showForm && (
+          
+        <form onSubmit={() => handleClick()}>
+           <label className="pb-1">Ingresa tu nombre</label>
         <br />
         <input onKeyUp={(e) => setNombre(e.target.value)} type="text" className="medidainput" placeholder="Nombre" ></input>
+        <button type="submit" className="u-full-width button-primary botonEnviar">Enviar</button>
+        </form>
+         )}
+        {showForm && (
+          <div className="pb-5" > 
         <div className="pb-5" > </div>
         <h1>Hola {nombre}, tus puntos: {contador}!!!</h1>
-
-
-        {/*<p>{pais.name}</p>*/}
-       
         <h1>{timeLeft}</h1>
         <img src={pais.flag} className="imagenPais" alt="" />
         <br />
@@ -88,6 +101,9 @@ function App() {
           <input type="text" name="pais" className="u-full-width medidainput" placeholder="Pais" autoComplete="off" />
           <button type="submit" className="u-full-width button-primary botonEnviar">Enviar</button>
         </form>
+        </div>
+        )}
+
       </center>
 
     </>
